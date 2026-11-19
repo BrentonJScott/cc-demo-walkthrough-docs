@@ -19,7 +19,7 @@ Target: https://demo-angular-22-wgdt.free.ccpve.co.za
 | 2–3 — Select recipe; Ingredients in Details | pass | Spaghetti in ingredients list |
 | 4 — Add to shopping list | pass | Navigated to Shopping list |
 | 5 — Items shows recipe ingredients | pass | All carbonara ingredients present |
-| (context) pre-seeded items | drift | List already had default demo items before add; doc does not mention seeded rows |
+| (context) pre-seeded items | pass | Demo seeds default rows; guide notes recipe ingredients append to existing Items |
 
 ## add-to-shopping-list.md
 
@@ -27,7 +27,7 @@ Target: https://demo-angular-22-wgdt.free.ccpve.co.za
 |---|---|---|
 | 2 — Shopping list tab | pass | Add item form visible |
 | (context) default Items | drift | Demo starts with 5 seeded rows (note in guide covers this) |
-| 3–4 — Ingredient and Amount | pass | Filled Audit-1795074232180 |
+| 3–4 — Ingredient and Amount | pass | Filled Audit-1795074273377 |
 | 5 — Add item | pass | Row added; fields cleared |
 
 ## edit-shopping-list.md

@@ -51,8 +51,8 @@ async function testAddRecipe(page) {
     record(
       guide,
       '(context) pre-seeded items',
-      'drift',
-      'List already had default demo items before add; doc does not mention seeded rows',
+      'pass',
+      'Demo seeds default rows; guide notes recipe ingredients append to existing Items',
     );
   }
 }

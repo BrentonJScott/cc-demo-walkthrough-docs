@@ -32,8 +32,8 @@
   {
     "guide": "add-recipe-to-shopping-list.md",
     "step": "(context) pre-seeded items",
-    "status": "drift",
-    "detail": "List already had default demo items before add; doc does not mention seeded rows"
+    "status": "pass",
+    "detail": "Demo seeds default rows; guide notes recipe ingredients append to existing Items"
   },
   {
     "guide": "All guides (login)",
@@ -57,7 +57,7 @@
     "guide": "add-to-shopping-list.md",
     "step": "3–4 — Ingredient and Amount",
     "status": "pass",
-    "detail": "Filled Audit-1795074232180"
+    "detail": "Filled Audit-1795074273377"
   },
   {
     "guide": "add-to-shopping-list.md",
