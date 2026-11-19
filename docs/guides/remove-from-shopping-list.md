@@ -20,7 +20,7 @@ type: guide
 
 ![Shopping list with items](assets/remove-from-shopping-list-step-2.png)
 
-Under **Items**, each row shows an ingredient, its amount, and a **Remove** button on the right.
+Under **Items**, each row shows an ingredient, its amount, and two buttons on the right: **Edit** and **Remove**. This guide uses **Remove** only.
 
 ## Step 3 — Remove one item
 

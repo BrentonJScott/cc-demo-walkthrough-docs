@@ -5,6 +5,7 @@ Documentation for [Recipe Book](https://github.com/LeeKnowles02/cc-demo-walkthro
 | Doc | Type |
 |---|---|
 | [Add an item to your shopping list](docs/guides/add-to-shopping-list.md) | How-to guide |
+| [Edit a shopping list item](docs/guides/edit-shopping-list.md) | How-to guide |
 | [Remove an item from your shopping list](docs/guides/remove-from-shopping-list.md) | How-to guide |
 | [Add a recipe to your shopping list](docs/guides/add-recipe-to-shopping-list.md) | How-to guide |
 | [Recipe Book pages](docs/info/recipe-book-pages.md) | Information |

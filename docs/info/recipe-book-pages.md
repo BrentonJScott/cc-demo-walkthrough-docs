@@ -32,4 +32,4 @@ The title shows how many recipes there are.
 The title shows how many items are on the list.
 
 - **Add item**: **Ingredient** and **Amount** fields, with **Clear** and **Add item** buttons.
-- **Items**: each item with its amount and a **Remove** button. An empty list shows "Your shopping list is empty."
+- **Items**: each item with its amount, an **Edit** button (inline name and amount fields, **Cancel** and **Save**), and a **Remove** button. An empty list shows "Your shopping list is empty."

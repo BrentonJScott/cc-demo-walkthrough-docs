@@ -111,6 +111,48 @@ async function captureAddToShoppingList(page, shotDir) {
   report.guides[name] = { steps, drift, pass: drift.length === 0 };
 }
 
+async function captureEditShoppingList(page, shotDir) {
+  const steps = [];
+  const drift = [];
+  const name = 'edit-shopping-list';
+  const newName = `Edited-${Date.now()}`;
+  const newAmount = '99 g';
+
+  try {
+    await login(page);
+    await page.getByRole('link', { name: 'Shopping list' }).click();
+    await page.waitForURL('**/shopping-list');
+    await screenshot(page, shotDir, `${name}-step-2`);
+
+    const firstRow = page.locator('.row').first();
+    const original = (await firstRow.locator('.item-name').textContent())?.trim();
+    if (!original) {
+      drift.push('No items on list to edit');
+    } else {
+      steps.push(`Edit item: ${original}`);
+      await firstRow.getByRole('button', { name: `Edit ${original}` }).click();
+      await screenshot(page, shotDir, `${name}-step-3`);
+      const editForm = page.locator('form').filter({ hasText: 'Cancel' });
+      await editForm.getByLabel('Ingredient name').fill(newName);
+      await editForm.getByLabel('Amount').fill(newAmount);
+      await screenshot(page, shotDir, `${name}-step-3-filled`);
+      await page.getByRole('button', { name: 'Save' }).click();
+      if (!(await page.getByText(newName).isVisible())) {
+        drift.push('Edited name not visible after Save');
+      }
+      if (await page.getByText(original, { exact: true }).isVisible()) {
+        drift.push('Original name still visible after Save');
+      }
+      await screenshot(page, shotDir, `${name}-step-4`);
+      steps.push('Saved inline edit');
+    }
+  } catch (e) {
+    drift.push(`Failed: ${e.message}`);
+  }
+
+  report.guides[name] = { steps, drift, pass: drift.length === 0 };
+}
+
 async function captureRemoveFromShoppingList(page, shotDir) {
   const steps = [];
   const drift = [];
@@ -152,6 +194,7 @@ async function main() {
 
   await testAddRecipeToShoppingList(page, shotDir);
   await captureAddToShoppingList(page, shotDir);
+  await captureEditShoppingList(page, shotDir);
   await captureRemoveFromShoppingList(page, shotDir);
 
   await browser.close();

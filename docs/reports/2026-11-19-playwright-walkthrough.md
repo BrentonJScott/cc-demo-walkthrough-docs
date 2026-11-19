@@ -14,8 +14,9 @@ type: report
 
 | Feature (DOCUMENTED_FEATURES.MD) | Guide doc | Status |
 |---|---|---|
-| Add to Shopping list | `docs/guides/add-to-shopping-list.md` | **Added** this run (was missing on `main`) |
-| Remove from shopping list | `docs/guides/remove-from-shopping-list.md` | **Added** this run (was missing on `main`) |
+| Add to Shopping list | `docs/guides/add-to-shopping-list.md` | Added (was missing on `main` at first cron run) |
+| Edit shopping list items (inline name and amount editing) | `docs/guides/edit-shopping-list.md` | **Added** after `demo-angular-22` `main` gained edit UI (`cb79623`) |
+| Remove from shopping list | `docs/guides/remove-from-shopping-list.md` | Added (was missing on `main` at first cron run) |
 | Add recipe items to shopping list | `docs/guides/add-recipe-to-shopping-list.md` | Existed; tested below |
 
 `docs/info/recipe-book-pages.md` is informational only and is not tied to a feature line in `DOCUMENTED_FEATURES.MD`.
@@ -50,6 +51,18 @@ Automated run: all steps **pass** (`scripts/walkthrough.mjs`).
 | 4 | **Add item** | Item visible in **Items** | **OK** |
 
 No drift detected against the hosted app for steps written in the new guide.
+
+---
+
+## `edit-shopping-list.md` (new)
+
+| # | Doc step | Playwright action | Result |
+|---|---|---|---|
+| 1–2 | Sign in, open **Shopping list** | Login + tab | **OK** |
+| 3 | **Edit**, change fields | Inline inputs + **Save** | **OK** |
+| 4 | Row shows updated text | Verified new name visible | **OK** |
+
+Hosted demo matches current `main` (five **Edit** buttons on default list).
 
 ---
 

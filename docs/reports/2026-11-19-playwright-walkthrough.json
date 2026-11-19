@@ -1,5 +1,5 @@
 {
-  "testedAt": "2026-11-19T07:34:55.311Z",
+  "testedAt": "2026-11-19T07:40:21.414Z",
   "baseUrl": "https://demo-angular-22-wgdt.free.ccpve.co.za",
   "guides": {
     "add-recipe-to-shopping-list": {
@@ -18,6 +18,14 @@
         "Log in opens Recipes",
         "Open Shopping list tab",
         "Fill Ingredient and Amount, click Add item"
+      ],
+      "drift": [],
+      "pass": true
+    },
+    "edit-shopping-list": {
+      "steps": [
+        "Edit item: Spaghetti",
+        "Saved inline edit"
       ],
       "drift": [],
       "pass": true
