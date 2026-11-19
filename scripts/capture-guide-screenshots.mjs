@@ -33,7 +33,7 @@ await shot(page, 'add-to-shopping-list/step-1-login.png');
 await login(page);
 await page.getByRole('navigation', { name: 'Main' }).getByRole('link', { name: 'Shopping list' }).click();
 await page.waitForURL('**/shopping-list');
-await page.locator('button[title="Edit"]').first().waitFor({ state: 'visible' });
+await page.locator('button[title="Remove"]').first().waitFor({ state: 'visible' });
 await shot(page, 'add-to-shopping-list/step-2-shopping-list.png');
 const snapItem = `Tomatoes-${Date.now()}`;
 await page.locator('#item-name').fill(snapItem);
@@ -44,19 +44,6 @@ await page.locator('form.form button[type="submit"]').click();
 await page.locator('.row', { hasText: snapItem }).first().waitFor();
 await shot(page, 'add-to-shopping-list/step-5-added.png');
 
-// edit-shopping-list
-await page.goto(BASE);
-await login(page);
-await page.getByRole('navigation', { name: 'Main' }).getByRole('link', { name: 'Shopping list' }).click();
-await page.locator('button[title="Edit"]').first().waitFor({ state: 'visible' });
-await shot(page, 'edit-shopping-list/step-1-items.png');
-await page.locator('.row').first().locator('button[title="Edit"]').click();
-await shot(page, 'edit-shopping-list/step-2-edit-fields.png');
-await page.locator('.row input').first().fill('Tomatoes (edited)');
-await shot(page, 'edit-shopping-list/step-3-edit-filled.png');
-await page.locator('.row button[type="submit"]').click();
-await shot(page, 'edit-shopping-list/step-4-after-save.png');
-
 // remove
 await page.goto(BASE);
 await login(page);
@@ -65,6 +52,27 @@ await page.locator('button[title="Remove"]').first().waitFor({ state: 'visible' 
 await shot(page, 'remove-from-shopping-list/step-1-items.png');
 await page.locator('.row').first().locator('button[title="Remove"]').click();
 await shot(page, 'remove-from-shopping-list/step-2-after-remove.png');
+
+// clear-all
+await page.goto(BASE);
+await shot(page, 'clear-all-shopping-list/step-1-login.png');
+await login(page);
+await page.getByRole('navigation', { name: 'Main' }).getByRole('link', { name: 'Shopping list' }).click();
+await page.getByRole('button', { name: 'Clear all' }).waitFor({ state: 'visible' });
+await shot(page, 'clear-all-shopping-list/step-2-clear-all-button.png');
+await page.getByRole('button', { name: 'Clear all' }).click();
+await page.locator('.empty').waitFor({ state: 'visible' });
+await shot(page, 'clear-all-shopping-list/step-3-empty-list.png');
+
+// search-recipes
+await page.goto(BASE);
+await shot(page, 'search-recipes-by-name/step-1-login.png');
+await login(page);
+await shot(page, 'search-recipes-by-name/step-2-search-field.png');
+await page.locator('.search').fill('carbon');
+await shot(page, 'search-recipes-by-name/step-3-filtered-list.png');
+await page.locator('.search').fill('');
+await shot(page, 'search-recipes-by-name/step-4-full-list.png');
 
 // add-recipe
 await page.goto(BASE);

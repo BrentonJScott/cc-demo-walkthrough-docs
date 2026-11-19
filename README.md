@@ -7,9 +7,10 @@ Documentation for the [Recipe Book demo](https://demo-angular-22-wgdt.free.ccpve
 | Feature | Guide |
 |---|---|
 | Add to Shopping list | [Add an item to your shopping list](docs/guides/add-to-shopping-list.md) |
-| Edit shopping list items | [Edit a shopping list item](docs/guides/edit-shopping-list.md) |
 | Remove from shopping list | [Remove an item from your shopping list](docs/guides/remove-from-shopping-list.md) |
+| Clear all items from the shopping list | [Clear all items from your shopping list](docs/guides/clear-all-shopping-list.md) |
 | Add recipe items to shopping list | [Add a recipe to your shopping list](docs/guides/add-recipe-to-shopping-list.md) |
+| Search recipes by name | [Search recipes by name](docs/guides/search-recipes-by-name.md) |
 
 | Doc | Type |
 |---|---|

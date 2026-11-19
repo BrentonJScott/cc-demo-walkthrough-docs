@@ -18,7 +18,7 @@ Add **every ingredient** from a recipe to **Items** in one click.
 2. Type any **Email** and **Password** (the demo does not check them).
 3. Click the blue **Log in** link **inside the white card** (not the small **Log in** tab in the top-right header).
 
-You land on **Recipes**.
+You land on **Recipe book** (the **Recipes** tab in the header is selected).
 
 ![Log in and sign in](/assets/guides/add-recipe-to-shopping-list/step-1-login.png)
 

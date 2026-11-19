@@ -1,38 +1,43 @@
-# Document drift cron — 2026-11-19 08:36 UTC
+# Document drift cron — 2026-11-19 09:05 UTC
 
 Target: https://demo-angular-22-wgdt.free.ccpve.co.za (headless Playwright, team `EMAIL`/`PASSWORD` secrets)
 
-Feature list source: `demo-angular-22` `DOCUMENTED_FEATURES.MD` on `main` after `git pull` (5 features at audit start; 4 after sync PR).
+Feature list: `demo-angular-22` `DOCUMENTED_FEATURES.MD` on `main` after `git pull` (6 features at audit start).
 
-## Summary
+## Summary (this run, live site)
 
-| Guide | Functional | Doc fidelity | Action |
+| Feature / guide | Functional | Doc fidelity | Action |
 | --- | --- | --- | --- |
-| `add-recipe-to-shopping-list.md` | pass | pass | — |
-| `add-to-shopping-list.md` | pass | drift → **pass** (PR) | Step 1: Log in control is a link, not a button |
-| `edit-shopping-list.md` | pass | pass | — |
-| `remove-from-shopping-list.md` | pass | drift → **pass** (PR) | Step 1: Log in control is a link, not a button |
-| `add-new-recipe.md` | fail | fail | Feature absent on live demo and in app `main`; guide removed, `DOCUMENTED_FEATURES.MD` updated in app repo |
+| `add-to-shopping-list.md` | pass | drift → **pass** (PR) | Step 1 post-login page title |
+| `remove-from-shopping-list.md` | pass | pass | — |
+| `add-recipe-to-shopping-list.md` | pass | drift → **pass** (PR) | Step 1 post-login page title |
+| `clear-all-shopping-list.md` | pass | fail (missing) → **pass** (PR) | New guide + screenshots |
+| `search-recipes-by-name.md` | fail | fail (missing) | New guide in docs PR; app PR wires `filtered()` (deploy required for live pass) |
+| Add a new recipe (no guide) | fail | fail | Removed from `DOCUMENTED_FEATURES.MD` in app PR (control not on live demo) |
 
-## Pre-fix mismatches (this run)
+## Pre-fix mismatches
 
 ### `add-to-shopping-list.md`
 
-- **Step 1:** Doc — *“Click the blue **Log in** button **inside the white card**”* → Screen — primary control is an `<a class="btn btn-primary">` with visible text **Log in** (link, not `<button>`).
+- **Step 1:** Doc — *“You should land on the **Recipes** page.”* → Screen — visible `h1` is **Recipe book** (nav tab text **Recipes**).
 
-### `remove-from-shopping-list.md`
+### `add-recipe-to-shopping-list.md`
 
-- **Step 1:** Doc — *“use the blue **Log in** button in the form card”* → Screen — same **Log in** **link** in the form card.
+- **Step 1:** Doc — *“You land on **Recipes**.”* → Screen — visible `h1` **Recipe book**.
 
-### `add-new-recipe.md` (removed)
+### `search-recipes-by-name.md` (missing guide)
 
-- **Step 2:** Doc — *“**New recipe** button at the top”* → Screen — no **New recipe** control on Recipes (removed from deployed app and `recipes.ts` on `main`).
+- **Step 3 (intended):** Doc — *“recipe list shows only matching names”* → Screen — typing `carbon` leaves **3** recipe buttons visible (search field does not filter on deployed build).
 
-## Post-PR verification
+### Add a new recipe
+
+- **Feature list:** Doc — *“Add a new recipe …”* in `DOCUMENTED_FEATURES.MD` → Screen — no **New recipe** button or create form on **Recipe book**.
+
+## Post-PR verification (local scripts)
+
+After docs branch updates prose/screenshots, run on live (search step remains fail until app deploy):
 
 ```text
-node scripts/doc-fidelity-audit.mjs   # exit 0
-node scripts/walkthrough-test.mjs       # exit 0
+node scripts/doc-fidelity-audit.mjs
+node scripts/walkthrough-test.mjs
 ```
-
-Screenshots refreshed via `node scripts/capture-guide-screenshots.mjs` for all four active guides.

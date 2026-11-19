@@ -77,22 +77,34 @@ async function testAddToList(page) {
   record(guide, '5 — Add item', nameEmpty ? 'pass' : 'drift', nameEmpty ? 'Row added; fields cleared' : 'Fields not cleared');
 }
 
-async function testEditList(page) {
-  const guide = 'edit-shopping-list.md';
+async function testClearAll(page) {
+  const guide = 'clear-all-shopping-list.md';
   await login(page);
   await page.getByRole('navigation', { name: 'Main' }).getByRole('link', { name: 'Shopping list' }).click();
   await page.waitForURL('**/shopping-list');
-  const target = page.locator('.row').first();
-  const original = await target.locator('.item-name').textContent();
-  await target.getByRole('button', { name: 'Edit' }).click();
-  const nameBox = target.getByRole('textbox', { name: 'Ingredient name' });
-  await nameBox.waitFor({ state: 'visible' });
-  record(guide, '3 — Edit opens inline fields', 'pass', 'Ingredient name and Amount inputs visible');
-  const edited = `${original?.trim()} (e2e)`;
-  await nameBox.fill(edited);
-  await target.getByRole('button', { name: 'Save' }).click();
-  await page.locator('.row', { hasText: edited }).waitFor({ state: 'visible' });
-  record(guide, '4 — Save', 'pass', `Row shows ${edited}`);
+  const before = await page.locator('.row').count();
+  record(guide, '2 — Clear all visible', before > 0 ? 'pass' : 'drift', `Seeded ${before} rows`);
+  await page.getByRole('button', { name: 'Clear all' }).click();
+  const after = await page.locator('.row').count();
+  const empty = await page.locator('.empty').isVisible();
+  record(
+    guide,
+    '3 — Clear all',
+    after === 0 && empty ? 'pass' : 'fail',
+    empty ? 'Empty state message visible' : 'List not empty',
+  );
+}
+
+async function testSearch(page) {
+  const guide = 'search-recipes-by-name.md';
+  await login(page);
+  await page.locator('.search').fill('carbon');
+  const count = await page.locator('button.recipe').count();
+  const match = count === 1 && (await page.getByRole('button', { name: /carbonara/i }).isVisible());
+  record(guide, '3 — Filter by name', match ? 'pass' : 'fail', `${count} recipes visible after "carbon"`);
+  await page.locator('.search').fill('');
+  const full = await page.locator('button.recipe').count();
+  record(guide, '4 — Clear search', full >= 3 ? 'pass' : 'fail', `${full} recipes after clearing search`);
 }
 
 async function testRemove(page) {
@@ -129,8 +141,9 @@ const page = await browser.newPage();
 try {
   await testAddRecipe(page);
   await testAddToList(page);
-  await testEditList(page);
   await testRemove(page);
+  await testClearAll(page);
+  await testSearch(page);
 } finally {
   await browser.close();
 }

@@ -68,6 +68,9 @@ async function auditLoginStep(page, G, stepId) {
   await page.locator('#password').fill(PASSWORD);
   await page.locator('main.auth .btn-primary').click();
   await page.waitForURL('**/recipes');
+  const landing = await visibleText(page.locator('h1'));
+  recordStep(G, `${stepId} — Recipe book title`, landing === 'Recipe book', `h1: "${landing}"`);
+  if (landing !== 'Recipe book') noteMismatch(G, stepId, 'visible "Recipe book" after sign-in', `h1 "${landing}"`);
 }
 
 /** Section labels render uppercase via CSS; compare to doc with this normalizer. */
@@ -110,33 +113,30 @@ async function auditAddToShoppingList(page) {
   if (itemsLabel !== 'ITEMS') noteMismatch(G, 'Step 5 success', 'section "ITEMS"', `"${itemsLabel}"`);
 }
 
-async function auditEditShoppingList(page) {
-  const G = 'edit-shopping-list.md';
-  await login(page);
-    await page.getByRole('navigation', { name: 'Main' }).getByRole('link', { name: 'Shopping list' }).click();
-    await page.waitForURL('**/shopping-list');
-    await page.locator('button[title="Edit"]').first().waitFor({ state: 'visible' });
+async function auditClearAll(page) {
+  const G = 'clear-all-shopping-list.md';
+  await auditLoginStep(page, G, 'Step 1');
+  await page.getByRole('navigation', { name: 'Main' }).getByRole('link', { name: 'Shopping list' }).click();
+  await page.waitForURL('**/shopping-list');
+  const clearAll = await page.getByRole('button', { name: 'Clear all' }).isVisible();
+  recordStep(G, 'Step 2 — Clear all button', clearAll, clearAll ? 'visible' : 'hidden');
+  if (!clearAll) noteMismatch(G, 'Step 2', 'visible button "Clear all"', 'button not visible');
+  const itemsHdr = await visibleText(page.locator('.items-header .section-label'));
+  if (itemsHdr !== 'ITEMS') noteMismatch(G, 'Step 2', 'heading "ITEMS"', `"${itemsHdr}"`);
+}
 
-    const row = page.locator('.row').first();
-  const editBtn = row.locator('button[title="Edit"]');
-  const removeBtn = row.locator('button[title="Remove"]');
-  const hasEditIcon = (await editBtn.count()) > 0;
-  const hasRemoveIcon = (await removeBtn.count()) > 0;
-  recordStep(G, 'Step 1 — Edit icon + tooltip', hasEditIcon, 'pencil with title="Edit"');
-  recordStep(G, 'Step 1 — Remove icon + tooltip', hasRemoveIcon, 'trash with title="Remove"');
-  if (!hasEditIcon) noteMismatch(G, 'Step 1', 'pencil Edit icon (tooltip Edit)', 'control missing');
-  if (!hasRemoveIcon) noteMismatch(G, 'Step 1', 'trash Remove icon (tooltip Remove)', 'control missing');
-
-  await editBtn.click();
-  const cancelText = await visibleText(page.locator('.row button', { hasText: 'Cancel' }));
-  const saveText = await visibleText(page.locator('.row button[type="submit"]'));
-  recordStep(G, 'Step 2 — Cancel/Save', cancelText === 'Cancel' && saveText === 'Save', `${cancelText} / ${saveText}`);
-  if (cancelText !== 'Cancel') noteMismatch(G, 'Step 2', 'visible "Cancel"', `"${cancelText}"`);
-  if (saveText !== 'Save') noteMismatch(G, 'Step 2', 'visible "Save"', `"${saveText}"`);
-
-  const editInputs = await page.locator('.row input').count();
-  recordStep(G, 'Step 2 — two inline text fields', editInputs >= 2, `${editInputs} inputs in edit row`);
-  if (editInputs < 2) noteMismatch(G, 'Step 2', 'two text fields for name and amount', `${editInputs} inputs`);
+async function auditSearch(page) {
+  const G = 'search-recipes-by-name.md';
+  await auditLoginStep(page, G, 'Step 1');
+  const ph = await page.locator('.search').getAttribute('placeholder');
+  recordStep(G, 'Step 2 — Search field', ph === 'Search recipes', `placeholder: ${ph}`);
+  if (ph !== 'Search recipes') noteMismatch(G, 'Step 2', 'placeholder "Search recipes"', `"${ph}"`);
+  await page.locator('.search').fill('carbon');
+  const count = await page.locator('button.recipe').count();
+  const onlyCarbon = count === 1 && (await page.getByRole('button', { name: /carbonara/i }).isVisible());
+  recordStep(G, 'Step 3 — filter list', onlyCarbon, `${count} recipes visible`);
+  if (!onlyCarbon)
+    noteMismatch(G, 'Step 3', 'only matching recipe names visible', `${count} recipes still listed`);
 }
 
 async function auditRemove(page) {
@@ -185,8 +185,9 @@ const page = await browser.newPage();
 try {
   await auditAddRecipe(page);
   await auditAddToShoppingList(page);
-  await auditEditShoppingList(page);
   await auditRemove(page);
+  await auditClearAll(page);
+  await auditSearch(page);
 } finally {
   await browser.close();
 }
