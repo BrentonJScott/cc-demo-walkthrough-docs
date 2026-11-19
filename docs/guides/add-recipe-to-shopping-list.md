@@ -24,7 +24,7 @@ You land on **Recipes**.
 
 ### Step 2 — Choose a recipe
 
-Under **All recipes**, click the recipe you want, for example **Spaghetti carbonara**.
+Under **ALL RECIPES** (small caps heading), click the recipe you want, for example **Spaghetti carbonara**.
 
 The **Details** panel on the right updates.
 
@@ -32,7 +32,7 @@ The **Details** panel on the right updates.
 
 ### Step 3 — Check ingredients
 
-Under **Details**, read the **Ingredients** list to confirm what will be added.
+Under **DETAILS**, read the **INGREDIENTS** list to confirm what will be added.
 
 ![Ingredients list in Details](/assets/guides/add-recipe-to-shopping-list/step-3-details.png)
 
@@ -40,6 +40,6 @@ Under **Details**, read the **Ingredients** list to confirm what will be added.
 
 Click the blue **Add to shopping list** button.
 
-The app opens **Shopping list**. The recipe ingredients appear in **Items** (along with any items that were already on the list).
+The app opens **Shopping list**. The recipe ingredients appear in **ITEMS** (along with any items that were already on the list).
 
 ![Shopping list with recipe ingredients in Items](/assets/guides/add-recipe-to-shopping-list/step-4-ingredients-on-list.png)

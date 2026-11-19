@@ -28,7 +28,7 @@ You land on **Recipes**.
 
 On the **Recipes** page, find the **New recipe** button at the top (next to the recipe count chip). Click it.
 
-The right side changes from **Details** to a form labeled **New recipe** with empty fields.
+The right side changes from **DETAILS** to a form under **NEW RECIPE** (small caps heading) with empty fields.
 
 ![Empty new recipe form](/assets/guides/add-new-recipe/step-2-new-recipe-form.png)
 
