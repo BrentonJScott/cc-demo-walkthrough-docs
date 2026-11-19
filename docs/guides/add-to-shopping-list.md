@@ -18,9 +18,9 @@ Open the demo URL above. You should see the **Log in** page.
 
 1. Click in the **Email** box. Type any email (the demo does not check it).
 2. Click in the **Password** box. Type any password.
-3. Click the blue **Log in** link **inside the white card** (not the small **Log in** link in the top-right header).
+3. Click the blue **Log in** button inside the white card (it is a link styled as a button; not the small **Log in** tab in the top-right header).
 
-You should land on the **Recipes** page.
+You should land on **Recipe book** (the page title under the header; the **Recipes** tab in the header is selected).
 
 ![Log in page with Email, Password, and Log in link](/assets/guides/add-to-shopping-list/step-1-login.png)
 
