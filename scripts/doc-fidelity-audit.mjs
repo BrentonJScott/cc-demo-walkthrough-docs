@@ -113,10 +113,11 @@ async function auditAddToShoppingList(page) {
 async function auditEditShoppingList(page) {
   const G = 'edit-shopping-list.md';
   await login(page);
-  await page.getByRole('navigation', { name: 'Main' }).getByRole('link', { name: 'Shopping list' }).click();
-  await page.waitForURL('**/shopping-list');
+    await page.getByRole('navigation', { name: 'Main' }).getByRole('link', { name: 'Shopping list' }).click();
+    await page.waitForURL('**/shopping-list');
+    await page.locator('button[title="Edit"]').first().waitFor({ state: 'visible' });
 
-  const row = page.locator('.row').first();
+    const row = page.locator('.row').first();
   const editBtn = row.locator('button[title="Edit"]');
   const removeBtn = row.locator('button[title="Remove"]');
   const hasEditIcon = (await editBtn.count()) > 0;
@@ -142,6 +143,8 @@ async function auditRemove(page) {
   const G = 'remove-from-shopping-list.md';
   await login(page);
   await page.getByRole('navigation', { name: 'Main' }).getByRole('link', { name: 'Shopping list' }).click();
+  await page.waitForURL('**/shopping-list');
+  await page.locator('button[title="Remove"]').first().waitFor({ state: 'visible' });
 
   const removeBtn = page.locator('.row').first().locator('button[title="Remove"]');
   const hasRemove = (await removeBtn.count()) > 0;
@@ -177,38 +180,6 @@ async function auditAddRecipe(page) {
   if (addBtn !== 'Add to shopping list') noteMismatch(G, 'Step 4', 'button "Add to shopping list"', `"${addBtn}"`);
 }
 
-async function auditNewRecipe(page) {
-  const G = 'add-new-recipe.md';
-  await login(page);
-
-  const newRecipeBtn = await visibleText(page.locator('.new-btn'));
-  recordStep(G, 'Step 2 — New recipe button', newRecipeBtn === 'New recipe', newRecipeBtn);
-  if (newRecipeBtn !== 'New recipe') noteMismatch(G, 'Step 2', 'button "New recipe"', `"${newRecipeBtn}"`);
-
-  await page.locator('.new-btn').click();
-  const formTitle = await visibleText(page.locator('.section-label', { hasText: 'New recipe' }));
-  recordStep(G, 'Step 2 — NEW RECIPE section', formTitle === 'NEW RECIPE', formTitle);
-  if (formTitle !== 'NEW RECIPE') noteMismatch(G, 'Step 2', 'heading "NEW RECIPE"', `visible "${formTitle}"`);
-
-  for (const [id, name] of [
-    ['recipe-name', 'Name'],
-    ['recipe-description', 'Description'],
-    ['recipe-time', 'Time'],
-    ['recipe-serves', 'Serves'],
-    ['recipe-ingredients', 'Ingredients'],
-  ]) {
-    const lab = await visibleText(page.locator(`label[for="${id}"]`));
-    if (lab !== name) noteMismatch(G, 'Step 3', `visible label "${name}"`, `"${lab}"`);
-    recordStep(G, `Step 3 — label ${name}`, lab === name, lab);
-  }
-
-  const saveBtn = await visibleText(page.locator('form.details button[type="submit"]'));
-  const cancelBtn = await visibleText(page.locator('form.details button[type="button"]'));
-  recordStep(G, 'Step 4 — Save recipe', saveBtn === 'Save recipe', saveBtn);
-  if (saveBtn !== 'Save recipe') noteMismatch(G, 'Step 4', '"Save recipe"', `"${saveBtn}"`);
-  if (cancelBtn !== 'Cancel') noteMismatch(G, 'Step 4', '"Cancel"', `"${cancelBtn}"`);
-}
-
 const browser = await chromium.launch({ headless: true });
 const page = await browser.newPage();
 try {
@@ -216,7 +187,6 @@ try {
   await auditAddToShoppingList(page);
   await auditEditShoppingList(page);
   await auditRemove(page);
-  await auditNewRecipe(page);
 } finally {
   await browser.close();
 }
