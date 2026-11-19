@@ -18,7 +18,7 @@ You must be signed in and on the **Shopping list** page. If **Items** is empty, 
 
 ### Step 1 — Open Shopping list and find the item
 
-1. Open the demo URL and sign in (any **Email** and **Password** work; use the blue **Log in** button in the form card).
+1. Open the demo URL and sign in (any **Email** and **Password** work; use the blue **Log in** link in the form card).
 2. Click **Shopping list** in the header.
 3. Scroll to **ITEMS** and find the row you want to delete.
 

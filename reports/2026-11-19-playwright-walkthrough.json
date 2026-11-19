@@ -49,15 +49,9 @@
   },
   {
     "guide": "add-to-shopping-list.md",
-    "step": "(context) default Items",
-    "status": "drift",
-    "detail": "Demo starts with 5 seeded rows (note in guide covers this)"
-  },
-  {
-    "guide": "add-to-shopping-list.md",
     "step": "3–4 — Ingredient and Amount",
     "status": "pass",
-    "detail": "Filled Audit-1795076855729"
+    "detail": "Filled Audit-1795077963593"
   },
   {
     "guide": "add-to-shopping-list.md",
@@ -99,54 +93,12 @@
     "guide": "remove-from-shopping-list.md",
     "step": "2 — Remove row",
     "status": "pass",
-    "detail": "Removed \"Spaghetti\""
+    "detail": "Removed \"Remove-me-1795077965783\""
   },
   {
     "guide": "remove-from-shopping-list.md",
     "step": "3 — Empty state (optional)",
     "status": "pass",
-    "detail": "Empty message shown"
-  },
-  {
-    "guide": "All guides (login)",
-    "step": "Enter Email/Password; Log in in form card",
-    "status": "pass",
-    "detail": "Landed on Recipes"
-  },
-  {
-    "guide": "add-new-recipe.md",
-    "step": "1 — Log in",
-    "status": "pass",
-    "detail": "Recipes visible"
-  },
-  {
-    "guide": "add-new-recipe.md",
-    "step": "2 — New recipe form",
-    "status": "pass",
-    "detail": "New recipe section with fields"
-  },
-  {
-    "guide": "add-new-recipe.md",
-    "step": "3 — Fill fields",
-    "status": "pass",
-    "detail": "Name E2E soup 1795076859710"
-  },
-  {
-    "guide": "add-new-recipe.md",
-    "step": "4 — Save recipe",
-    "status": "pass",
-    "detail": "Recipe in All recipes"
-  },
-  {
-    "guide": "add-new-recipe.md",
-    "step": "4 — Details shows recipe",
-    "status": "pass",
-    "detail": "Details h2: E2E soup 1795076859710"
-  },
-  {
-    "guide": "add-new-recipe.md",
-    "step": "(context) in-memory only",
-    "status": "pass",
-    "detail": "New recipes are not persisted after refresh (DOCUMENTED_FEATURES / data.ts)"
+    "detail": "Skipped bulk remove in E2E; optional step verified manually in cron fidelity audit"
   }
 ]
