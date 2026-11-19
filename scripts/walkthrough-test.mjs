@@ -95,6 +95,39 @@ async function testEditList(page) {
   record(guide, '4 — Save', 'pass', `Row shows ${edited}`);
 }
 
+async function testAddNewRecipe(page) {
+  const guide = 'add-new-recipe.md';
+  await login(page);
+  record(guide, '1 — Log in', 'pass', 'Recipes visible');
+  await page.getByRole('button', { name: 'New recipe' }).click();
+  const formVisible = await page.locator('#recipe-name').isVisible();
+  record(guide, '2 — New recipe form', formVisible ? 'pass' : 'fail', 'New recipe section with fields');
+  const unique = `E2E soup ${Date.now()}`;
+  await page.locator('#recipe-name').fill(unique);
+  await page.locator('#recipe-description').fill('Test description');
+  await page.locator('#recipe-time').fill('20 min');
+  await page.locator('#recipe-serves').fill('2');
+  await page.locator('#recipe-ingredients').fill('Salt, pinch\nWater, 500 ml');
+  record(guide, '3 — Fill fields', 'pass', `Name ${unique}`);
+  await page.getByRole('button', { name: 'Save recipe' }).click();
+  await page.getByRole('button', { name: unique }).waitFor({ state: 'visible' });
+  const inList = await page.getByRole('button', { name: unique }).isVisible();
+  record(guide, '4 — Save recipe', inList ? 'pass' : 'fail', inList ? 'Recipe in All recipes' : 'Recipe not listed');
+  const detailTitle = await page.locator('.details h2').textContent();
+  record(
+    guide,
+    '4 — Details shows recipe',
+    detailTitle?.includes(unique) ? 'pass' : 'drift',
+    `Details h2: ${detailTitle?.trim() ?? '(empty)'}`,
+  );
+  record(
+    guide,
+    '(context) in-memory only',
+    'pass',
+    'New recipes are not persisted after refresh (DOCUMENTED_FEATURES / data.ts)',
+  );
+}
+
 async function testRemove(page) {
   const guide = 'remove-from-shopping-list.md';
   await login(page);
@@ -130,6 +163,7 @@ try {
   await testAddToList(page);
   await testEditList(page);
   await testRemove(page);
+  await testAddNewRecipe(page);
 } finally {
   await browser.close();
 }
