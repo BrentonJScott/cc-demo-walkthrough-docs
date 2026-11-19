@@ -15,9 +15,20 @@ Documentation for the [Recipe Book demo](https://demo-angular-22-wgdt.free.ccpve
 |---|---|
 | [Recipe Book pages](docs/info/recipe-book-pages.md) | Information |
 
+## Docs site
+
+Built with [Docusaurus](https://docusaurus.io). Only the guides and info pages live in `docs/`; screenshots are in `static/assets/` and test reports in `reports/`.
+
+```
+npm install
+npm start        # dev server
+npm run build    # static site in build/
+npm run serve    # preview the build
+```
+
 ## Validation
 
-Headless Playwright checks: `node scripts/walkthrough-test.mjs` (requires `EMAIL` and `PASSWORD` in the environment). Reports are written under `docs/reports/`.
+Headless Playwright checks: `node scripts/walkthrough-test.mjs` (requires `EMAIL` and `PASSWORD` in the environment). Reports are written under `reports/`.
 
 ## Version
 

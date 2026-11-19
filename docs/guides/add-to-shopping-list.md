@@ -22,7 +22,7 @@ Open the demo URL above. You should see the **Log in** page.
 
 You should land on the **Recipes** page.
 
-![Log in page with Email, Password, and Log in button](../assets/guides/add-to-shopping-list/step-1-login.png)
+![Log in page with Email, Password, and Log in button](/assets/guides/add-to-shopping-list/step-1-login.png)
 
 ### Step 2 — Go to Shopping list
 
@@ -30,13 +30,13 @@ In the top header, click **Shopping list** (between **Recipes** and **Log out**)
 
 You should see the title **Shopping list** and a form labeled **Add item**.
 
-![Shopping list page](../assets/guides/add-to-shopping-list/step-2-shopping-list.png)
+![Shopping list page](/assets/guides/add-to-shopping-list/step-2-shopping-list.png)
 
 ### Step 3 — Enter an ingredient name
 
 Under **Add item**, click the **Ingredient** field (placeholder: *e.g. Tomatoes*). Type the name, for example `Tomatoes`.
 
-![Ingredient field filled](../assets/guides/add-to-shopping-list/step-3-ingredient.png)
+![Ingredient field filled](/assets/guides/add-to-shopping-list/step-3-ingredient.png)
 
 ### Step 4 — Enter an amount
 
@@ -44,7 +44,7 @@ Click the **Amount** field. Type how much you need, for example `6`.
 
 If you leave **Amount** empty and still click **Add item**, the app uses `1`.
 
-![Amount field filled](../assets/guides/add-to-shopping-list/step-4-amount.png)
+![Amount field filled](/assets/guides/add-to-shopping-list/step-4-amount.png)
 
 ### Step 5 — Add the item
 
@@ -55,6 +55,6 @@ Click the blue **Add item** button on the right under the form.
 - A new line appears in the **Items** table at the bottom.
 - The **Ingredient** and **Amount** fields become empty again.
 
-![New row in Items](../assets/guides/add-to-shopping-list/step-5-added.png)
+![New row in Items](/assets/guides/add-to-shopping-list/step-5-added.png)
 
 To clear the fields without saving, click **Clear** instead of **Add item**.

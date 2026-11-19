@@ -22,7 +22,7 @@ You must be signed in and on the **Shopping list** page. If **Items** is empty, 
 2. Click **Shopping list** in the header.
 3. Scroll to **Items** and find the row you want to delete.
 
-![Shopping list with rows in Items](../assets/guides/remove-from-shopping-list/step-1-items.png)
+![Shopping list with rows in Items](/assets/guides/remove-from-shopping-list/step-1-items.png)
 
 ### Step 2 — Remove the row
 
@@ -30,7 +30,7 @@ On that row, on the right, click **Remove**.
 
 The row disappears immediately. Other rows stay.
 
-![List after one row was removed](../assets/guides/remove-from-shopping-list/step-2-after-remove.png)
+![List after one row was removed](/assets/guides/remove-from-shopping-list/step-2-after-remove.png)
 
 ### Step 3 — Remove more items (optional)
 

@@ -135,8 +135,8 @@ try {
 }
 
 const date = new Date().toISOString().slice(0, 10);
-const outJson = path.join(ROOT, `docs/reports/${date}-playwright-walkthrough.json`);
-const outMd = path.join(ROOT, `docs/reports/${date}-playwright-walkthrough.md`);
+const outJson = path.join(ROOT, `reports/${date}-playwright-walkthrough.json`);
+const outMd = path.join(ROOT, `reports/${date}-playwright-walkthrough.md`);
 
 const byGuide = new Map();
 for (const r of reports) {

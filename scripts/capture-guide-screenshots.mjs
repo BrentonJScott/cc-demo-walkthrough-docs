@@ -29,27 +29,27 @@ const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
 await page.goto(BASE, { waitUntil: 'networkidle' });
 await page.getByLabel('Email').fill(EMAIL);
 await page.getByLabel('Password').fill(PASSWORD);
-await shot(page, 'docs/assets/guides/add-recipe-to-shopping-list/step-1-login.png');
+await shot(page, 'static/assets/guides/add-recipe-to-shopping-list/step-1-login.png');
 await login(page);
-await shot(page, 'docs/assets/guides/add-recipe-to-shopping-list/step-2-recipes.png');
+await shot(page, 'static/assets/guides/add-recipe-to-shopping-list/step-2-recipes.png');
 await page.getByRole('button', { name: /Spaghetti carbonara/i }).click();
-await shot(page, 'docs/assets/guides/add-recipe-to-shopping-list/step-3-details.png');
+await shot(page, 'static/assets/guides/add-recipe-to-shopping-list/step-3-details.png');
 await page.getByRole('button', { name: 'Add to shopping list' }).click();
 await page.waitForURL('**/shopping-list');
-await shot(page, 'docs/assets/guides/add-recipe-to-shopping-list/step-4-ingredients-on-list.png');
+await shot(page, 'static/assets/guides/add-recipe-to-shopping-list/step-4-ingredients-on-list.png');
 
 // edit shopping list screenshots
 await page.getByRole('navigation', { name: 'Main' }).getByRole('link', { name: 'Shopping list' }).click();
-await shot(page, 'docs/assets/guides/edit-shopping-list/step-1-items.png');
+await shot(page, 'static/assets/guides/edit-shopping-list/step-1-items.png');
 const row = page.locator('.row').first();
 await row.getByRole('button', { name: 'Edit' }).click();
-await shot(page, 'docs/assets/guides/edit-shopping-list/step-2-edit-fields.png');
+await shot(page, 'static/assets/guides/edit-shopping-list/step-2-edit-fields.png');
 const nameInput = page.getByRole('textbox', { name: 'Ingredient name' });
 await nameInput.fill('Tomatoes (edited)');
 await page.locator('form.row input[aria-label="Amount"]').fill('8');
-await shot(page, 'docs/assets/guides/edit-shopping-list/step-3-edit-filled.png');
+await shot(page, 'static/assets/guides/edit-shopping-list/step-3-edit-filled.png');
 await page.getByRole('button', { name: 'Save' }).click();
-await shot(page, 'docs/assets/guides/edit-shopping-list/step-4-after-save.png');
+await shot(page, 'static/assets/guides/edit-shopping-list/step-4-after-save.png');
 
 await browser.close();
 console.log('Screenshots captured');
