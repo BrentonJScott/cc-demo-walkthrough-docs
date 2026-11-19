@@ -10,6 +10,7 @@ Target: https://demo-angular-22-wgdt.free.ccpve.co.za
 | Enter Email/Password; Log in in form card | pass | Landed on Recipes |
 | Enter Email/Password; Log in in form card | pass | Landed on Recipes |
 | Enter Email/Password; Log in in form card | pass | Landed on Recipes |
+| Enter Email/Password; Log in in form card | pass | Landed on Recipes |
 
 ## add-recipe-to-shopping-list.md
 
@@ -27,7 +28,7 @@ Target: https://demo-angular-22-wgdt.free.ccpve.co.za
 |---|---|---|
 | 2 — Shopping list tab | pass | Add item form visible |
 | (context) default Items | drift | Demo starts with 5 seeded rows (note in guide covers this) |
-| 3–4 — Ingredient and Amount | pass | Filled Audit-1795074273377 |
+| 3–4 — Ingredient and Amount | pass | Filled Audit-1795075408299 |
 | 5 — Add item | pass | Row added; fields cleared |
 
 ## edit-shopping-list.md
@@ -44,4 +45,15 @@ Target: https://demo-angular-22-wgdt.free.ccpve.co.za
 | 1 — Open Shopping list | pass | Items section visible |
 | 2 — Remove row | pass | Removed "Spaghetti" |
 | 3 — Empty state (optional) | pass | Empty message shown |
+
+## add-new-recipe.md
+
+| Step | Status | Detail |
+|---|---|---|
+| 1 — Log in | pass | Recipes visible |
+| 2 — New recipe form | pass | New recipe section with fields |
+| 3 — Fill fields | pass | Name E2E soup 1795075412330 |
+| 4 — Save recipe | pass | Recipe in All recipes |
+| 4 — Details shows recipe | pass | Details h2: E2E soup 1795075412330 |
+| (context) in-memory only | pass | New recipes are not persisted after refresh (DOCUMENTED_FEATURES / data.ts) |
 
