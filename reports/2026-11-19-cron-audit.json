@@ -1,0 +1,113 @@
+[
+  {
+    "feature": "Add to Shopping list",
+    "guide": "add-to-shopping-list.md",
+    "functional": "pass",
+    "doc_fidelity": "pass",
+    "mismatches": [],
+    "functionalNotes": []
+  },
+  {
+    "feature": "Remove from shopping list",
+    "guide": "remove-from-shopping-list.md",
+    "functional": "pass",
+    "doc_fidelity": "pass",
+    "mismatches": [],
+    "functionalNotes": []
+  },
+  {
+    "feature": "Clear all items from the shopping list",
+    "guide": "clear-all-shopping-list.md",
+    "functional": "pass",
+    "doc_fidelity": "fail",
+    "mismatches": [
+      {
+        "step": "(guide)",
+        "doc": "Guide file clear-all-shopping-list.md required for feature",
+        "actual": "Not present on main branch"
+      }
+    ],
+    "functionalNotes": [
+      "No guide on main; skipped structured fidelity steps",
+      "Clear all works on live site; guide missing on main"
+    ]
+  },
+  {
+    "feature": "Add recipe items to shopping list",
+    "guide": "add-recipe-to-shopping-list.md",
+    "functional": "pass",
+    "doc_fidelity": "pass",
+    "mismatches": [],
+    "functionalNotes": []
+  },
+  {
+    "feature": "Add a new recipe (name, description, time, serves, and ingredients entered one per line as \"name, amount\")",
+    "guide": "add-new-recipe.md",
+    "functional": "pass",
+    "doc_fidelity": "fail",
+    "mismatches": [
+      {
+        "step": "(guide)",
+        "doc": "Guide file add-new-recipe.md required for feature",
+        "actual": "Not present on main branch"
+      }
+    ],
+    "functionalNotes": [
+      "No guide on main; skipped structured fidelity steps",
+      "Wizard opens on live site; guide missing on main"
+    ]
+  },
+  {
+    "feature": "Search recipes by name",
+    "guide": "search-recipes-by-name.md",
+    "functional": "fail",
+    "doc_fidelity": "fail",
+    "mismatches": [
+      {
+        "step": "(guide)",
+        "doc": "Guide file search-recipes-by-name.md required for feature",
+        "actual": "Not present on main branch"
+      }
+    ],
+    "functionalNotes": [
+      "No guide on main; skipped structured fidelity steps",
+      "Search did not narrow list (3 -> 3); visible: Spaghetti carbonara, Chicken tikka masala, Vegetable stir-fry",
+      "Search behavior tested; guide missing on main"
+    ]
+  },
+  {
+    "feature": "Adjust a recipe's servings with +/- buttons; ingredient amounts scale to match, and the scaled amounts are added to the shopping list",
+    "guide": "adjust-recipe-servings.md",
+    "functional": "fail",
+    "doc_fidelity": "fail",
+    "mismatches": [
+      {
+        "step": "(guide)",
+        "doc": "Guide file adjust-recipe-servings.md required for feature",
+        "actual": "Not present on main branch"
+      }
+    ],
+    "functionalNotes": [
+      "No guide on main; skipped structured fidelity steps",
+      "Servings stepper shows 5 but amounts unchanged (400 g)",
+      "Servings tested on live; guide missing on main"
+    ]
+  },
+  {
+    "feature": "New recipe flow (4 steps with a progress bar, Back/Next, and Cancel): Add recipe, Shopping list, Rate a recipe and Share",
+    "guide": "new-recipe-flow.md",
+    "functional": "fail",
+    "doc_fidelity": "fail",
+    "mismatches": [
+      {
+        "step": "(guide)",
+        "doc": "Guide file new-recipe-flow.md required for feature",
+        "actual": "Not present on main branch"
+      }
+    ],
+    "functionalNotes": [
+      "No guide on main; skipped structured fidelity steps",
+      "Four-step wizard works on live; dedicated guide missing on main"
+    ]
+  }
+]

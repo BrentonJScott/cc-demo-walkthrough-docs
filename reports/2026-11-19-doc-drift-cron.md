@@ -1,38 +1,67 @@
-# Document drift cron — 2026-11-19 08:36 UTC
+# DOCUMENTED_FEATURES audit — 2026-11-19 cron (11:38 UTC)
 
-Target: https://demo-angular-22-wgdt.free.ccpve.co.za (headless Playwright, team `EMAIL`/`PASSWORD` secrets)
+**Source:** `demo-angular-22` `DOCUMENTED_FEATURES.MD` (8 features, one guide each)  
+**Target:** https://demo-angular-22-wgdt.free.ccpve.co.za (headless Playwright, `EMAIL`/`PASSWORD`)
 
-Feature list source: `demo-angular-22` `DOCUMENTED_FEATURES.MD` on `main` after `git pull` (5 features at audit start; 4 after sync PR).
+## Summary (main branch at run time)
 
-## Summary
+| Feature | Guide | Functional | Doc fidelity |
+|---|---|---|---|
+| Add to Shopping list | `add-to-shopping-list.md` | pass | drift |
+| Remove from shopping list | `remove-from-shopping-list.md` | pass | pass |
+| Clear all items | `clear-all-shopping-list.md` | pass | fail (missing guide) |
+| Add recipe items to shopping list | `add-recipe-to-shopping-list.md` | pass | drift |
+| Add a new recipe | `add-new-recipe.md` | pass | fail (missing guide) |
+| Search recipes by name | `search-recipes-by-name.md` | fail | fail (missing guide) |
+| Adjust servings + scaled list | `adjust-recipe-servings.md` | fail | fail (missing guide) |
+| New recipe flow (4 steps) | `new-recipe-flow.md` | pass | fail (missing guide) |
 
-| Guide | Functional | Doc fidelity | Action |
-| --- | --- | --- | --- |
-| `add-recipe-to-shopping-list.md` | pass | pass | — |
-| `add-to-shopping-list.md` | pass | drift → **pass** (PR) | Step 1: Log in control is a link, not a button |
-| `edit-shopping-list.md` | pass | pass | — |
-| `remove-from-shopping-list.md` | pass | drift → **pass** (PR) | Step 1: Log in control is a link, not a button |
-| `add-new-recipe.md` | fail | fail | Feature absent on live demo and in app `main`; guide removed, `DOCUMENTED_FEATURES.MD` updated in app repo |
+**PR:** Branch `docs/cron-2026-11-19-v5` adds missing guides, screenshots, and fixes landing-page title drift on two existing guides.
 
-## Pre-fix mismatches (this run)
+## Per-guide step fidelity (this run)
 
 ### `add-to-shopping-list.md`
 
-- **Step 1:** Doc — *“Click the blue **Log in** button **inside the white card**”* → Screen — primary control is an `<a class="btn btn-primary">` with visible text **Log in** (link, not `<button>`).
+| Step | Doc fidelity |
+|---|---|
+| Step 1 — sign in | drift |
+| Step 2 — Shopping list | pass |
+| Step 3 — Ingredient | pass |
+| Step 4 — Amount | pass |
+| Step 5 — Add item | pass |
+
+- **Step 1:** Doc says you land on the **Recipes** page; visible page title is **Recipe book** (`h1`).
 
 ### `remove-from-shopping-list.md`
 
-- **Step 1:** Doc — *“use the blue **Log in** button in the form card”* → Screen — same **Log in** **link** in the form card.
+| Step | Doc fidelity |
+|---|---|
+| Step 1 — open list | pass |
+| Step 2 — Remove icon | pass |
+| Step 3 — empty message (optional) | pass (not exercised in E2E) |
 
-### `add-new-recipe.md` (removed)
+### `add-recipe-to-shopping-list.md`
 
-- **Step 2:** Doc — *“**New recipe** button at the top”* → Screen — no **New recipe** control on Recipes (removed from deployed app and `recipes.ts` on `main`).
+| Step | Doc fidelity |
+|---|---|
+| Step 1 — sign in | drift |
+| Step 2 — ALL RECIPES / Details | pass |
+| Step 3 — INGREDIENTS | pass |
+| Step 4 — Add to shopping list | pass |
 
-## Post-PR verification
+- **Step 1:** Doc says you land on **Recipes**; visible title is **Recipe book**.
 
-```text
-node scripts/doc-fidelity-audit.mjs   # exit 0
-node scripts/walkthrough-test.mjs       # exit 0
-```
+### Missing on main (functional notes)
 
-Screenshots refreshed via `node scripts/capture-guide-screenshots.mjs` for all four active guides.
+| Feature | Functional note |
+|---|---|
+| Clear all | **Clear all** works; empty state copy matches. |
+| Add new recipe | **New recipe** opens `/recipes/new` with **Name**, **Description**, **Time**, **Serves**, **Ingredients**, **Next**. |
+| Search | Placeholder **Search recipes** matches; filter does not run (3 recipes remain after typing `carbonara`). |
+| Adjust servings | **+** updates stepper count but not ingredient amounts or **Serves** badge on deployment. |
+| Wizard flow | Progress labels **Add recipe**, **Shopping list**, **Rate**, **Share**; **Cancel**, **Back**, **Next**/**Skip**/**Done** visible. |
+
+## App issues (documented only — no code changes)
+
+- Search field does not narrow **ALL RECIPES** on the live deployment.
+- Servings stepper does not scale ingredient amounts or shopping-list quantities on the live deployment.
