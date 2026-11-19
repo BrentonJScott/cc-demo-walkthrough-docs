@@ -1,11 +1,12 @@
 # Recipe Book docs
 
-Documentation for [Recipe Book](https://github.com/LeeKnowles02/cc-demo-walkthrough), kept in its own repository like the Code Capsules docs.
+Documentation for [Recipe Book](https://github.com/BrentonJScott/demo-angular-22), kept in its own repository.
 
 | Doc | Type |
 |---|---|
 | [Add a recipe to your shopping list](docs/guides/add-recipe-to-shopping-list.md) | How-to guide |
-| [Add and remove shopping list items](docs/guides/manage-shopping-list.md) | How-to guide |
+| [Add an item to your shopping list](docs/guides/add-to-shopping-list.md) | How-to guide |
+| [Remove an item from your shopping list](docs/guides/remove-from-shopping-list.md) | How-to guide |
 | [Recipe Book pages](docs/info/recipe-book-pages.md) | Information |
 
 ## Version

@@ -1,0 +1,152 @@
+[
+  {
+    "feature": "Add recipe items to shopping list",
+    "step": 1,
+    "status": "followed",
+    "detail": "Fill Email/Password, click Log in (main content button, not header tab)"
+  },
+  {
+    "feature": "Add recipe items to shopping list",
+    "step": 1,
+    "status": "drift",
+    "detail": "Doc says \"The Recipes page opens\" — correct. Header also shows a Log in tab on the login page; automated tests must click the primary Log in control inside the form card."
+  },
+  {
+    "feature": "Add recipe items to shopping list",
+    "step": 2,
+    "status": "followed",
+    "detail": "Click Spaghetti carbonara under All recipes"
+  },
+  {
+    "feature": "Add recipe items to shopping list",
+    "step": 3,
+    "status": "followed",
+    "detail": "Check Ingredients under Details"
+  },
+  {
+    "feature": "Add recipe items to shopping list",
+    "step": 3,
+    "status": "pass",
+    "detail": "Ingredient rows visible in Details"
+  },
+  {
+    "feature": "Add recipe items to shopping list",
+    "step": 3,
+    "status": "pass",
+    "detail": "Doc step is read-only; 5 ingredients listed for carbonara"
+  },
+  {
+    "feature": "Add recipe items to shopping list",
+    "step": 4,
+    "status": "followed",
+    "detail": "Click Add to shopping list"
+  },
+  {
+    "feature": "Add recipe items to shopping list",
+    "step": 4,
+    "status": "pass",
+    "detail": "Shopping list page opened"
+  },
+  {
+    "feature": "Add recipe items to shopping list",
+    "step": 5,
+    "status": "pass",
+    "detail": "Expected recipe ingredients on list. Rows: 10. Missing: none. Doc implies only recipe ingredients; deployed demo started empty and may show duplicates if clicked twice."
+  },
+  {
+    "feature": "Add to Shopping list",
+    "step": 1,
+    "status": "pass",
+    "detail": "Logged in; landed on Recipes"
+  },
+  {
+    "feature": "Add to Shopping list",
+    "step": 2,
+    "status": "followed",
+    "detail": "Open Shopping list from header"
+  },
+  {
+    "feature": "Add to Shopping list",
+    "step": 2,
+    "status": "pass",
+    "detail": "On Shopping list page with 0 existing row(s). Deployed demo starts empty (local source seeds five sample items — docs must not assume seeds on hosted URL)."
+  },
+  {
+    "feature": "Add to Shopping list",
+    "step": 3,
+    "status": "followed",
+    "detail": "Type Ingredient: AuditIngredient-1795072175408"
+  },
+  {
+    "feature": "Add to Shopping list",
+    "step": 4,
+    "status": "followed",
+    "detail": "Type Amount: 3 kg"
+  },
+  {
+    "feature": "Add to Shopping list",
+    "step": 5,
+    "status": "followed",
+    "detail": "Click Add item submit button"
+  },
+  {
+    "feature": "Add to Shopping list",
+    "step": 6,
+    "status": "pass",
+    "detail": "New row visible: true; fields cleared: true"
+  },
+  {
+    "feature": "Remove from shopping list",
+    "step": 1,
+    "status": "drift",
+    "detail": "Doc assumes items already exist; fresh hosted session starts empty — seeded one item for the test."
+  },
+  {
+    "feature": "Remove from shopping list",
+    "step": "3-4",
+    "status": "followed",
+    "detail": "Click Remove on \"Spaghetti\""
+  },
+  {
+    "feature": "Remove from shopping list",
+    "step": "3-4",
+    "status": "followed",
+    "detail": "Click Remove on \"Spaghetti\""
+  },
+  {
+    "feature": "Remove from shopping list",
+    "step": "3-4",
+    "status": "followed",
+    "detail": "Click Remove on \"Eggs\""
+  },
+  {
+    "feature": "Remove from shopping list",
+    "step": "3-4",
+    "status": "followed",
+    "detail": "Click Remove on \"Pecorino Romano\""
+  },
+  {
+    "feature": "Remove from shopping list",
+    "step": "3-4",
+    "status": "followed",
+    "detail": "Click Remove on \"Tomatoes\""
+  },
+  {
+    "feature": "Remove from shopping list",
+    "step": "3-4",
+    "status": "followed",
+    "detail": "Click Remove on \"Apples\""
+  },
+  {
+    "feature": "Remove from shopping list",
+    "step": "3-4",
+    "status": "followed",
+    "detail": "Click Remove on \"Remove-me\""
+  },
+  {
+    "feature": "Remove from shopping list",
+    "step": "error",
+    "status": "fail",
+    "detail": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator('.row').first().getByRole('button', { name: 'Remove' })\n    - locator resolved to <button type=\"button\" class=\"btn btn-ghost\" _ngcontent-ng-c3075575345=\"\" aria-label=\"Remove Remove-me\"> Remove </button>\n  - attempting click action\n    - waiting for element to be visible, enabled and stable\n  - element was detached from the DOM, retrying\n"
+  }
+]

@@ -8,7 +8,7 @@ type: guide
 
 Add every ingredient of a recipe to your shopping list at once.
 
-1. Log in: enter your **Email** and **Password** and click **Log in**. The **Recipes** page opens.
+1. Log in: enter your **Email** and **Password** and click the blue **Log in** button in the form card (not the small **Log in** tab in the header). The **Recipes** page opens.
 2. Under **All recipes**, click the recipe you want, for example **Spaghetti carbonara**.
 3. Check its **Ingredients** under **Details**.
 4. Click **Add to shopping list**.
