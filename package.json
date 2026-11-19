@@ -1,0 +1,26 @@
+{
+  "name": "cc-demo-walkthrough-docs",
+  "version": "1.0.0",
+  "description": "Documentation for [Recipe Book](https://github.com/LeeKnowles02/cc-demo-walkthrough), kept in its own repository like the Code Capsules docs.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BrentonJScott/cc-demo-walkthrough-docs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BrentonJScott/cc-demo-walkthrough-docs/issues"
+  },
+  "homepage": "https://github.com/BrentonJScott/cc-demo-walkthrough-docs#readme",
+  "devDependencies": {
+    "playwright": "^1.49.1"
+  }
+}

@@ -1,12 +1,23 @@
 # Recipe Book docs
 
-Documentation for [Recipe Book](https://github.com/LeeKnowles02/cc-demo-walkthrough), kept in its own repository like the Code Capsules docs.
+Documentation for the [Recipe Book demo](https://demo-angular-22-wgdt.free.ccpve.co.za) ([app repo](https://github.com/BrentonJScott/demo-angular-22)), kept in a dedicated docs repository.
+
+## User guides (one per documented feature)
+
+| Feature | Guide |
+|---|---|
+| Add to Shopping list | [Add an item to your shopping list](docs/guides/add-to-shopping-list.md) |
+| Edit shopping list items | [Edit a shopping list item](docs/guides/edit-shopping-list.md) |
+| Remove from shopping list | [Remove an item from your shopping list](docs/guides/remove-from-shopping-list.md) |
+| Add recipe items to shopping list | [Add a recipe to your shopping list](docs/guides/add-recipe-to-shopping-list.md) |
 
 | Doc | Type |
 |---|---|
-| [Add a recipe to your shopping list](docs/guides/add-recipe-to-shopping-list.md) | How-to guide |
-| [Add and remove shopping list items](docs/guides/manage-shopping-list.md) | How-to guide |
 | [Recipe Book pages](docs/info/recipe-book-pages.md) | Information |
+
+## Validation
+
+Headless Playwright checks: `node scripts/walkthrough-test.mjs` (requires `EMAIL` and `PASSWORD` in the environment). Reports are written under `docs/reports/`.
 
 ## Version
 
