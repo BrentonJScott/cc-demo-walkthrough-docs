@@ -28,13 +28,15 @@ You should land on the **Recipes** page.
 
 In the top header, click **Shopping list** (between **Recipes** and **Log out**).
 
-You should see the title **Shopping list** and a form labeled **Add item**.
+You should see the title **Shopping list** and a form under the small caps heading **ADD ITEM**.
+
+**Note:** The demo starts with a few sample rows already in **ITEMS** (for example spaghetti ingredients). Your new row is added below those.
 
 ![Shopping list page](/assets/guides/add-to-shopping-list/step-2-shopping-list.png)
 
 ### Step 3 — Enter an ingredient name
 
-Under **Add item**, click the **Ingredient** field (placeholder: *e.g. Tomatoes*). Type the name, for example `Tomatoes`.
+Under **ADD ITEM**, click the **Ingredient** field (placeholder: *e.g. Tomatoes*). Type the name, for example `Tomatoes`.
 
 ![Ingredient field filled](/assets/guides/add-to-shopping-list/step-3-ingredient.png)
 
@@ -52,7 +54,7 @@ Click the blue **Add item** button on the right under the form.
 
 **Success looks like this:**
 
-- A new line appears in the **Items** table at the bottom.
+- A new line appears in the **ITEMS** table at the bottom.
 - The **Ingredient** and **Amount** fields become empty again.
 
 ![New row in Items](/assets/guides/add-to-shopping-list/step-5-added.png)

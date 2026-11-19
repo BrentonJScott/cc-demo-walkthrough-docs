@@ -57,7 +57,7 @@
     "guide": "add-to-shopping-list.md",
     "step": "3–4 — Ingredient and Amount",
     "status": "pass",
-    "detail": "Filled Audit-1795076212484"
+    "detail": "Filled Audit-1795076855729"
   },
   {
     "guide": "add-to-shopping-list.md",
@@ -129,7 +129,7 @@
     "guide": "add-new-recipe.md",
     "step": "3 — Fill fields",
     "status": "pass",
-    "detail": "Name E2E soup 1795076216464"
+    "detail": "Name E2E soup 1795076859710"
   },
   {
     "guide": "add-new-recipe.md",
@@ -141,7 +141,7 @@
     "guide": "add-new-recipe.md",
     "step": "4 — Details shows recipe",
     "status": "pass",
-    "detail": "Details h2: E2E soup 1795076216464"
+    "detail": "Details h2: E2E soup 1795076859710"
   },
   {
     "guide": "add-new-recipe.md",

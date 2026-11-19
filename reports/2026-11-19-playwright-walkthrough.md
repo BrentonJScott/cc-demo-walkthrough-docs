@@ -1,19 +1,27 @@
 # Playwright walkthrough report (2026-11-19)
 
-**Cron audit summary**
+**Cron audit** — features from `DOCUMENTED_FEATURES.MD` only (5 guides). Headless Playwright with team `EMAIL`/`PASSWORD`.
 
-| Source (`demo-angular-22` `DOCUMENTED_FEATURES.MD`) | Guide doc | Playwright doc result |
-|---|---|---|
-| Add to Shopping list | `docs/guides/add-to-shopping-list.md` | **Pass** (1 drift note below) |
-| Edit shopping list items (inline name and amount editing) | `docs/guides/edit-shopping-list.md` | **Pass** |
-| Remove from shopping list | `docs/guides/remove-from-shopping-list.md` | **Pass** |
-| Add recipe items to shopping list | `docs/guides/add-recipe-to-shopping-list.md` | **Pass** |
-| Add a new recipe (name, description, time, serves, ingredients) | `docs/guides/add-new-recipe.md` | **Pass** |
+## Guide results
 
-- **Feature count:** 5 (not 15 — `DOCUMENTED_FEATURES.MD` lists five user-facing features).
-- **Missing guides:** none; no new-doc PR opened this run.
-- **Fails:** none.
-- **UI drift:** Edit/Remove guides correctly describe **Edit** and **Remove** text buttons (not icons). Only drift is `add-to-shopping-list.md`: the live demo seeds five shopping-list rows on first visit; the guide’s screenshots and text already call that out.
+| Feature | Guide | Functional | Doc fidelity |
+|---|---|---|---|
+| Add to Shopping list | `add-to-shopping-list.md` | pass | pass (pre-PR: **drift** — ADD ITEM/ITEMS caps, seeded rows) |
+| Edit shopping list items | `edit-shopping-list.md` | pass | pass (pre-PR: **fail** — icon Edit/Remove, no visible inline labels) |
+| Remove from shopping list | `remove-from-shopping-list.md` | pass | pass (pre-PR: **fail** — Remove icon only) |
+| Add recipe items to shopping list | `add-recipe-to-shopping-list.md` | pass | pass (pre-PR: **drift** — ALL RECIPES / INGREDIENTS caps) |
+| Add a new recipe | `add-new-recipe.md` | pass | pass (pre-PR: **drift** — NEW RECIPE caps) |
+
+PR branch `docs/ui-fidelity-2026-11-19`: updated prose, refreshed step screenshots, `scripts/doc-fidelity-audit.mjs`. Post-fix: `doc-fidelity-audit.mjs` exit 0.
+
+### Pre-PR mismatches (evidence)
+
+- **edit-shopping-list.md** Step 1: doc «**Edit** and **Remove** on each row» vs icon-only controls (`title="Edit"` / `title="Remove"`).
+- **edit-shopping-list.md** Step 2: doc «**Ingredient name** and **Amount**» visible labels vs unlabeled inline inputs.
+- **remove-from-shopping-list.md** Step 2: doc «click **Remove**» vs trash icon only.
+- **add-to-shopping-list.md** Step 2: «**Add item**» vs visible **ADD ITEM**; **Items** vs **ITEMS**.
+- **add-recipe-to-shopping-list.md** Step 2–3: title case section headings vs CSS uppercase on screen.
+- **add-new-recipe.md** Step 2: «**New recipe**» section vs **NEW RECIPE**.
 
 Target: https://demo-angular-22-wgdt.free.ccpve.co.za
 
@@ -43,7 +51,7 @@ Target: https://demo-angular-22-wgdt.free.ccpve.co.za
 |---|---|---|
 | 2 — Shopping list tab | pass | Add item form visible |
 | (context) default Items | drift | Demo starts with 5 seeded rows (note in guide covers this) |
-| 3–4 — Ingredient and Amount | pass | Filled Audit-1795076212484 |
+| 3–4 — Ingredient and Amount | pass | Filled Audit-1795076855729 |
 | 5 — Add item | pass | Row added; fields cleared |
 
 ## edit-shopping-list.md
@@ -67,8 +75,8 @@ Target: https://demo-angular-22-wgdt.free.ccpve.co.za
 |---|---|---|
 | 1 — Log in | pass | Recipes visible |
 | 2 — New recipe form | pass | New recipe section with fields |
-| 3 — Fill fields | pass | Name E2E soup 1795076216464 |
+| 3 — Fill fields | pass | Name E2E soup 1795076859710 |
 | 4 — Save recipe | pass | Recipe in All recipes |
-| 4 — Details shows recipe | pass | Details h2: E2E soup 1795076216464 |
+| 4 — Details shows recipe | pass | Details h2: E2E soup 1795076859710 |
 | (context) in-memory only | pass | New recipes are not persisted after refresh (DOCUMENTED_FEATURES / data.ts) |
 
