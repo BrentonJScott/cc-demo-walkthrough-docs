@@ -1,0 +1,33 @@
+{
+  "testedAt": "2026-11-19T07:34:55.311Z",
+  "baseUrl": "https://demo-angular-22-wgdt.free.ccpve.co.za",
+  "guides": {
+    "add-recipe-to-shopping-list": {
+      "steps": [
+        "Navigate to demo and log in with Email, Password, Log in link",
+        "Click Spaghetti carbonara under All recipes",
+        "Verify Ingredients in Details",
+        "Click Add to shopping list",
+        "Shopping list shows recipe ingredients under Items"
+      ],
+      "drift": [],
+      "pass": true
+    },
+    "add-to-shopping-list": {
+      "steps": [
+        "Log in opens Recipes",
+        "Open Shopping list tab",
+        "Fill Ingredient and Amount, click Add item"
+      ],
+      "drift": [],
+      "pass": true
+    },
+    "remove-from-shopping-list": {
+      "steps": [
+        "Remove item: Spaghetti"
+      ],
+      "drift": [],
+      "pass": true
+    }
+  }
+}
