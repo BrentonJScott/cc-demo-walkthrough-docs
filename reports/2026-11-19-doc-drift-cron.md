@@ -1,38 +1,42 @@
-# Document drift cron — 2026-11-19 08:36 UTC
+# Document drift cron — 2026-11-19 09:30 UTC
 
-Target: https://demo-angular-22-wgdt.free.ccpve.co.za (headless Playwright, team `EMAIL`/`PASSWORD` secrets)
+Target: https://demo-angular-22-wgdt.free.ccpve.co.za (headless Playwright, `EMAIL`/`PASSWORD` secrets)
 
-Feature list source: `demo-angular-22` `DOCUMENTED_FEATURES.MD` on `main` after `git pull` (5 features at audit start; 4 after sync PR).
+Feature list: `demo-angular-22` `DOCUMENTED_FEATURES.MD` on `main` after `git pull origin main` (7 features).
 
 ## Summary
 
-| Guide | Functional | Doc fidelity | Action |
+| Feature / guide | Functional | Doc fidelity | Notes |
 | --- | --- | --- | --- |
-| `add-recipe-to-shopping-list.md` | pass | pass | — |
-| `add-to-shopping-list.md` | pass | drift → **pass** (PR) | Step 1: Log in control is a link, not a button |
-| `edit-shopping-list.md` | pass | pass | — |
-| `remove-from-shopping-list.md` | pass | drift → **pass** (PR) | Step 1: Log in control is a link, not a button |
-| `add-new-recipe.md` | fail | fail | Feature absent on live demo and in app `main`; guide removed, `DOCUMENTED_FEATURES.MD` updated in app repo |
+| `add-to-shopping-list.md` | pass | drift → PR | Step 1 post-login title |
+| `remove-from-shopping-list.md` | pass | pass | — |
+| `clear-all-shopping-list.md` | pass | fail → PR | Guide missing on `main` |
+| `add-recipe-to-shopping-list.md` | pass | drift → PR | Step 1 post-login title |
+| `add-new-recipe.md` | fail | fail → PR | Missing guide; **New recipe** click did not open form on live |
+| `search-recipes-by-name.md` | fail | fail → PR | Missing guide; search field does not filter list on live |
+| `adjust-recipe-servings.md` | fail | fail → PR | Missing guide; **+** changes count but amounts do not scale on live |
 
-## Pre-fix mismatches (this run)
+## Per-step mismatches (pre-PR live audit)
 
 ### `add-to-shopping-list.md`
 
-- **Step 1:** Doc — *“Click the blue **Log in** button **inside the white card**”* → Screen — primary control is an `<a class="btn btn-primary">` with visible text **Log in** (link, not `<button>`).
+- **Step 1:** Doc — *"land on the **Recipes** page"* → Screen — h1 **Recipe book**
 
-### `remove-from-shopping-list.md`
+### `add-recipe-to-shopping-list.md`
 
-- **Step 1:** Doc — *“use the blue **Log in** button in the form card”* → Screen — same **Log in** **link** in the form card.
+- **Step 1:** Doc — *"You land on **Recipes**"* → Screen — h1 **Recipe book**
 
-### `add-new-recipe.md` (removed)
+### Missing guides
 
-- **Step 2:** Doc — *“**New recipe** button at the top”* → Screen — no **New recipe** control on Recipes (removed from deployed app and `recipes.ts` on `main`).
+- **Clear all / Search / Adjust servings / Add new recipe:** No matching `docs/guides/*.md` on `main` before this cron PR.
 
-## Post-PR verification
+### Live functional failures (app; see `demo-angular-22` PR)
 
-```text
-node scripts/doc-fidelity-audit.mjs   # exit 0
-node scripts/walkthrough-test.mjs       # exit 0
-```
+- **New recipe:** Visible **New recipe** button; click did not show `#recipe-name` form.
+- **Search:** Placeholder **Search recipes** present; `zzznomatch123` and `carbonara` still showed all three recipes.
+- **Servings:** **+** changed step value 4 → 5; first ingredient amount stayed **400 g**; shopping list received unscaled amounts.
 
-Screenshots refreshed via `node scripts/capture-guide-screenshots.mjs` for all four active guides.
+## PRs
+
+- Docs: `docs/cron-2026-11-19-v3` — prose fixes, four new guides, screenshots, remove obsolete edit guide.
+- App: `fix/recipe-search-new-scale-2026-11-19` — wire **New recipe**, filter list by search, `selectRecipe` for filtered list.

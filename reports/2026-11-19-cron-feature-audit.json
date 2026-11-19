@@ -1,0 +1,102 @@
+[
+  {
+    "feature": "Add to Shopping list",
+    "guide": "add-to-shopping-list.md",
+    "functional": "pass",
+    "doc_fidelity": "drift",
+    "mismatches": [
+      {
+        "step": "Step 1",
+        "doc": "land on the **Recipes** page",
+        "screen": "h1 shows \"Recipe book\""
+      }
+    ],
+    "functional_notes": []
+  },
+  {
+    "feature": "Remove from shopping list",
+    "guide": "remove-from-shopping-list.md",
+    "functional": "pass",
+    "doc_fidelity": "pass",
+    "mismatches": [],
+    "functional_notes": []
+  },
+  {
+    "feature": "Clear all items from the shopping list",
+    "guide": null,
+    "functional": "pass",
+    "doc_fidelity": "fail",
+    "mismatches": [
+      {
+        "step": "(guide)",
+        "doc": "Expected guide under docs/guides/",
+        "screen": "No guide file on main"
+      }
+    ],
+    "functional_notes": []
+  },
+  {
+    "feature": "Add recipe items to shopping list",
+    "guide": "add-recipe-to-shopping-list.md",
+    "functional": "pass",
+    "doc_fidelity": "drift",
+    "mismatches": [
+      {
+        "step": "Step 1",
+        "doc": "land on **Recipes**",
+        "screen": "h1 \"Recipe book\""
+      }
+    ],
+    "functional_notes": []
+  },
+  {
+    "feature": "Add a new recipe",
+    "guide": null,
+    "functional": "fail",
+    "doc_fidelity": "fail",
+    "mismatches": [
+      {
+        "step": "(guide)",
+        "doc": "Guide for new recipe flow",
+        "screen": "No guide on main (add-new-recipe.md removed)"
+      }
+    ],
+    "functional_notes": [
+      "Clicking New recipe did not open form"
+    ]
+  },
+  {
+    "feature": "Search recipes by name",
+    "guide": null,
+    "functional": "fail",
+    "doc_fidelity": "fail",
+    "mismatches": [
+      {
+        "step": "(guide)",
+        "doc": "search-recipes-by-name.md",
+        "screen": "No guide file on main"
+      }
+    ],
+    "functional_notes": [
+      "Search term zzznomatch123 still shows 3 recipes: Spaghetti carbonara, Chicken tikka masala, Vegetable stir-fry",
+      "After \"carbonara\" filter, recipes shown: Spaghetti carbonara, Chicken tikka masala, Vegetable stir-fry"
+    ]
+  },
+  {
+    "feature": "Adjust a recipe's servings",
+    "guide": null,
+    "functional": "fail",
+    "doc_fidelity": "fail",
+    "mismatches": [
+      {
+        "step": "(guide)",
+        "doc": "Guide for servings +/- and scaled shopping list",
+        "screen": "No guide on main"
+      }
+    ],
+    "functional_notes": [
+      "Amount did not scale: before \"400 g\" after \"400 g\"",
+      "Shopping list got unscaled amounts"
+    ]
+  }
+]

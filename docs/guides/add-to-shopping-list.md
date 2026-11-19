@@ -20,7 +20,7 @@ Open the demo URL above. You should see the **Log in** page.
 2. Click in the **Password** box. Type any password.
 3. Click the blue **Log in** link **inside the white card** (not the small **Log in** link in the top-right header).
 
-You should land on the **Recipes** page.
+You should land on the **Recipe book** page (large **Recipe book** heading at the top).
 
 ![Log in page with Email, Password, and Log in link](/assets/guides/add-to-shopping-list/step-1-login.png)
 
