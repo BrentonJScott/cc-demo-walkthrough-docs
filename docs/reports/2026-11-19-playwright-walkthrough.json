@@ -1,0 +1,110 @@
+[
+  {
+    "guide": "All guides (login)",
+    "step": "Enter Email/Password; Log in in form card",
+    "status": "pass",
+    "detail": "Landed on Recipes"
+  },
+  {
+    "guide": "add-recipe-to-shopping-list.md",
+    "step": "1 — Log in",
+    "status": "pass",
+    "detail": "Recipes visible"
+  },
+  {
+    "guide": "add-recipe-to-shopping-list.md",
+    "step": "2–3 — Select recipe; Ingredients in Details",
+    "status": "pass",
+    "detail": "Spaghetti in ingredients list"
+  },
+  {
+    "guide": "add-recipe-to-shopping-list.md",
+    "step": "4 — Add to shopping list",
+    "status": "pass",
+    "detail": "Navigated to Shopping list"
+  },
+  {
+    "guide": "add-recipe-to-shopping-list.md",
+    "step": "5 — Items shows recipe ingredients",
+    "status": "pass",
+    "detail": "All carbonara ingredients present"
+  },
+  {
+    "guide": "add-recipe-to-shopping-list.md",
+    "step": "(context) pre-seeded items",
+    "status": "drift",
+    "detail": "List already had default demo items before add; doc does not mention seeded rows"
+  },
+  {
+    "guide": "All guides (login)",
+    "step": "Enter Email/Password; Log in in form card",
+    "status": "pass",
+    "detail": "Landed on Recipes"
+  },
+  {
+    "guide": "add-to-shopping-list.md",
+    "step": "2 — Shopping list tab",
+    "status": "pass",
+    "detail": "Add item form visible"
+  },
+  {
+    "guide": "add-to-shopping-list.md",
+    "step": "(context) default Items",
+    "status": "drift",
+    "detail": "Demo starts with 5 seeded rows (note in guide covers this)"
+  },
+  {
+    "guide": "add-to-shopping-list.md",
+    "step": "3–4 — Ingredient and Amount",
+    "status": "pass",
+    "detail": "Filled Audit-1795074232180"
+  },
+  {
+    "guide": "add-to-shopping-list.md",
+    "step": "5 — Add item",
+    "status": "pass",
+    "detail": "Row added; fields cleared"
+  },
+  {
+    "guide": "All guides (login)",
+    "step": "Enter Email/Password; Log in in form card",
+    "status": "pass",
+    "detail": "Landed on Recipes"
+  },
+  {
+    "guide": "edit-shopping-list.md",
+    "step": "3 — Edit opens inline fields",
+    "status": "pass",
+    "detail": "Ingredient name and Amount inputs visible"
+  },
+  {
+    "guide": "edit-shopping-list.md",
+    "step": "4 — Save",
+    "status": "pass",
+    "detail": "Row shows Spaghetti (e2e)"
+  },
+  {
+    "guide": "All guides (login)",
+    "step": "Enter Email/Password; Log in in form card",
+    "status": "pass",
+    "detail": "Landed on Recipes"
+  },
+  {
+    "guide": "remove-from-shopping-list.md",
+    "step": "1 — Open Shopping list",
+    "status": "pass",
+    "detail": "Items section visible"
+  },
+  {
+    "guide": "remove-from-shopping-list.md",
+    "step": "2 — Remove row",
+    "status": "pass",
+    "detail": "Removed \"Spaghetti\""
+  },
+  {
+    "guide": "remove-from-shopping-list.md",
+    "step": "3 — Empty state (optional)",
+    "status": "pass",
+    "detail": "Empty message shown"
+  }
+]
