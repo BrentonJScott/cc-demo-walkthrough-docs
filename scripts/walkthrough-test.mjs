@@ -95,6 +95,43 @@ async function testEditList(page) {
   record(guide, '4 — Save', 'pass', `Row shows ${edited}`);
 }
 
+async function testAddNewRecipe(page) {
+  const guide = 'add-new-recipe.md';
+  await login(page);
+  record(guide, '1 — Log in', 'pass', 'Recipes visible');
+  const before = await page.getByRole('button', { name: /New recipe/i }).isVisible();
+  record(guide, '2 — New recipe control', before ? 'pass' : 'fail', before ? 'New recipe button visible' : 'Missing New recipe');
+  await page.getByRole('button', { name: 'New recipe' }).click();
+  const formVisible = await page.getByLabel('Name', { exact: true }).isVisible();
+  record(guide, '3–5 — New recipe form', formVisible ? 'pass' : 'fail', formVisible ? 'Form fields shown' : 'Form not open');
+  const unique = `E2E Soup ${Date.now()}`;
+  await page.locator('#recipe-name').fill(unique);
+  await page.locator('#recipe-description').fill('Automated walkthrough recipe');
+  await page.locator('#recipe-time').fill('20 min');
+  await page.locator('#recipe-serves').fill('2');
+  await page
+    .locator('#recipe-ingredients')
+    .fill('Carrots, 3\nCelery, 2 stalks\nBroth, 1 L');
+  await page.getByRole('button', { name: 'Save recipe' }).click();
+  const inList = await page.getByRole('button', { name: new RegExp(unique) }).isVisible();
+  record(guide, '6 — Save recipe', inList ? 'pass' : 'fail', inList ? 'Recipe appears in All recipes' : 'Recipe not listed');
+  const detailTitle = await page.locator('.details h2').textContent();
+  const detailMatch = detailTitle?.includes(unique);
+  record(
+    guide,
+    '6 — Details panel',
+    detailMatch ? 'pass' : 'fail',
+    detailMatch ? 'Details shows saved recipe' : `Details title: ${detailTitle}`,
+  );
+  const ingCount = await page.locator('.details ul li').count();
+  record(
+    guide,
+    '(context) ingredient lines',
+    ingCount >= 3 ? 'pass' : 'fail',
+    ingCount >= 3 ? `${ingCount} ingredients in Details` : `Expected 3+ ingredients, saw ${ingCount}`,
+  );
+}
+
 async function testRemove(page) {
   const guide = 'remove-from-shopping-list.md';
   await login(page);
@@ -129,6 +166,7 @@ try {
   await testAddRecipe(page);
   await testAddToList(page);
   await testEditList(page);
+  await testAddNewRecipe(page);
   await testRemove(page);
 } finally {
   await browser.close();

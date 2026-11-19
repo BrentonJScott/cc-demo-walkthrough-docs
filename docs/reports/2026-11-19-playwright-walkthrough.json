@@ -57,7 +57,7 @@
     "guide": "add-to-shopping-list.md",
     "step": "3–4 — Ingredient and Amount",
     "status": "pass",
-    "detail": "Filled Audit-1795074273377"
+    "detail": "Filled Audit-1795074901348"
   },
   {
     "guide": "add-to-shopping-list.md",
@@ -82,6 +82,48 @@
     "step": "4 — Save",
     "status": "pass",
     "detail": "Row shows Spaghetti (e2e)"
+  },
+  {
+    "guide": "All guides (login)",
+    "step": "Enter Email/Password; Log in in form card",
+    "status": "pass",
+    "detail": "Landed on Recipes"
+  },
+  {
+    "guide": "add-new-recipe.md",
+    "step": "1 — Log in",
+    "status": "pass",
+    "detail": "Recipes visible"
+  },
+  {
+    "guide": "add-new-recipe.md",
+    "step": "2 — New recipe control",
+    "status": "pass",
+    "detail": "New recipe button visible"
+  },
+  {
+    "guide": "add-new-recipe.md",
+    "step": "3–5 — New recipe form",
+    "status": "pass",
+    "detail": "Form fields shown"
+  },
+  {
+    "guide": "add-new-recipe.md",
+    "step": "6 — Save recipe",
+    "status": "pass",
+    "detail": "Recipe appears in All recipes"
+  },
+  {
+    "guide": "add-new-recipe.md",
+    "step": "6 — Details panel",
+    "status": "pass",
+    "detail": "Details shows saved recipe"
+  },
+  {
+    "guide": "add-new-recipe.md",
+    "step": "(context) ingredient lines",
+    "status": "pass",
+    "detail": "3 ingredients in Details"
   },
   {
     "guide": "All guides (login)",
